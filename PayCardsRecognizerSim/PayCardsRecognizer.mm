@@ -96,19 +96,12 @@
     holder.backgroundColor = [UIColor clearColor];
     
     [holder addSubview:label];
-    [holder addSubview:button];
     
     [_simulatorView addSubview:holder];
     
     [holder addConstraintWithItem:label attribute:NSLayoutAttributeTop];
     [holder addConstraintWithItem:label attribute:NSLayoutAttributeRight];
     [holder addConstraintWithItem:label attribute:NSLayoutAttributeLeft];
-    
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeBottom];
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeRight];
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeLeft];
-    
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeTop toItem:label attribute:NSLayoutAttributeBottom constant: 8.0];
     
     [_simulatorView addConstraintWithItem:holder attribute:NSLayoutAttributeCenterY];
     [_simulatorView addConstraintWithItem:holder attribute:NSLayoutAttributeLeft toItem:_simulatorView attribute:NSLayoutAttributeLeft constant: 15.0];
