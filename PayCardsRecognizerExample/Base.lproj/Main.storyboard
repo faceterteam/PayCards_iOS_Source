@@ -427,21 +427,14 @@ or stored on device</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTT-W7-8FS">
-                                        <rect key="frame" x="131" y="131" width="58" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="LICENCE"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="8u5-gD-KXM" firstAttribute="leading" secondItem="YLr-jS-w4i" secondAttribute="leading" constant="20" id="3m9-22-9dk"/>
                                     <constraint firstItem="p46-ry-Mmy" firstAttribute="top" secondItem="YLr-jS-w4i" secondAttribute="top" constant="15" id="5l6-Qm-rjs"/>
-                                    <constraint firstItem="DTT-W7-8FS" firstAttribute="centerX" secondItem="YLr-jS-w4i" secondAttribute="centerX" id="BpN-YL-0k5"/>
                                     <constraint firstItem="8u5-gD-KXM" firstAttribute="top" secondItem="p46-ry-Mmy" secondAttribute="bottom" constant="8" id="ZC3-x7-57d"/>
                                     <constraint firstItem="p46-ry-Mmy" firstAttribute="centerX" secondItem="YLr-jS-w4i" secondAttribute="centerX" id="ZcO-wg-VAr"/>
                                     <constraint firstAttribute="trailing" secondItem="8u5-gD-KXM" secondAttribute="trailing" constant="20" id="eyM-5N-SrY"/>
-                                    <constraint firstAttribute="bottom" secondItem="DTT-W7-8FS" secondAttribute="bottom" constant="8" id="tle-iN-a0n"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhr-QO-e25">

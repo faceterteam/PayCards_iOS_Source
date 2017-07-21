@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		795F0B2D1F22484C00FB95D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795F0B2C1F22484C00FB95D9 /* UIKit.framework */; };
+		795F0B331F224CCA00FB95D9 /* PayCardsRecognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; };
+		795F0B341F224CCA00FB95D9 /* PayCardsRecognizer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		799F99E01F1E2CC20010B6B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F99DF1F1E2CC20010B6B1 /* AppDelegate.swift */; };
 		799F99E51F1E2CC20010B6B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799F99E31F1E2CC20010B6B1 /* Main.storyboard */; };
 		799F99E71F1E2CC20010B6B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799F99E61F1E2CC20010B6B1 /* Assets.xcassets */; };
@@ -238,16 +241,21 @@
 		799F9BCA1F1E2DFD0010B6B1 /* RecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F9BC71F1E2DFD0010B6B1 /* RecognizerViewController.swift */; };
 		8501D56D1F1F780200FAA7A5 /* PayCardsRecognizerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F9A211F1E2D260010B6B1 /* PayCardsRecognizerResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8501D59F1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D59E1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8501D5A41F1F8ED000FAA7A5 /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D5A31F1F8ED000FAA7A5 /* Enums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8501D5A41F1F8ED000FAA7A5 /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D5A31F1F8ED000FAA7A5 /* Enums.h */; };
 		8501D5A71F1F9F8B00FAA7A5 /* PayCardsRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D59E1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8501D5B11F1FAB3200FAA7A5 /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D5A31F1F8ED000FAA7A5 /* Enums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8501D5B11F1FAB3200FAA7A5 /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 8501D5A31F1F8ED000FAA7A5 /* Enums.h */; };
 		8501D5B51F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8501D5B31F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm */; };
 		8501D5B61F1FAC0700FAA7A5 /* PayCardsRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8501D5B41F1FAC0700FAA7A5 /* PayCardsRecognizer.mm */; };
-		85C7A10D1F21F7F0009A84DC /* PayCardsRecognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C7A10C1F21F7F0009A84DC /* PayCardsRecognizer.framework */; };
-		85C7A10E1F21F7F0009A84DC /* PayCardsRecognizer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85C7A10C1F21F7F0009A84DC /* PayCardsRecognizer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		795F0B351F224CCA00FB95D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 799F99BC1F1E2BF80010B6B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 799F99F31F1E2CDA0010B6B1;
+			remoteInfo = PayCardsRecognizer;
+		};
 		85C7A10F1F21FA44009A84DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 799F99BC1F1E2BF80010B6B1 /* Project object */;
@@ -258,13 +266,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8501D5E21F210D2A00FAA7A5 /* Embed Frameworks */ = {
+		795F0B371F224CCA00FB95D9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				85C7A10E1F21F7F0009A84DC /* PayCardsRecognizer.framework in Embed Frameworks */,
+				795F0B341F224CCA00FB95D9 /* PayCardsRecognizer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +280,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		795F0B2C1F22484C00FB95D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		799F99DD1F1E2CC20010B6B1 /* PayCardsRecognizerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayCardsRecognizerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799F99DF1F1E2CC20010B6B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799F99E41F1E2CC20010B6B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -504,7 +513,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85C7A10D1F21F7F0009A84DC /* PayCardsRecognizer.framework in Frameworks */,
+				795F0B331F224CCA00FB95D9 /* PayCardsRecognizer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +532,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795F0B2D1F22484C00FB95D9 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,6 +1070,7 @@
 		8501D5C01F20D25300FAA7A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				795F0B2C1F22484C00FB95D9 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1183,12 +1194,13 @@
 				799F99D91F1E2CC20010B6B1 /* Sources */,
 				799F99DA1F1E2CC20010B6B1 /* Frameworks */,
 				799F99DB1F1E2CC20010B6B1 /* Resources */,
-				8501D5E21F210D2A00FAA7A5 /* Embed Frameworks */,
+				795F0B371F224CCA00FB95D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				85C7A1101F21FA44009A84DC /* PBXTargetDependency */,
+				795F0B361F224CCA00FB95D9 /* PBXTargetDependency */,
 			);
 			name = PayCardsRecognizerExample;
 			productName = PayCardsRecognizerExample;
@@ -1342,7 +1354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Makes universal(device/simulator) framework\n\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# Setup some constants for use later on.\nFRAMEWORK_SIMULATOR=\"PayCardsRecognizerSim\"\nFRAMEWORK_DEVICE=\"PayCardsRecognizer\"\n\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# Build the framework for device and for simulator\n# (using all needed architectures).\nxcodebuild -target \"${FRAMEWORK_DEVICE}\" -configuration \"${CONFIGURATION}\" -arch arm64 -arch armv7 only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_SIMULATOR}\" -configuration \"${CONFIGURATION}\" -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# Remove .framework file from previous run if exists.\nif [ -d \"${SRCROOT}/${FRAMEWORK_DEVICE}.framework\" ]; then\nrm -rf \"${SRCROOT}/${FRAMEWORK_DEVICE}.framework\"\nfi\n\n# Copy the device version of framework\ncp -r \"${SRCROOT}/build/${CONFIGURATION}-iphoneos/${FRAMEWORK_DEVICE}.framework\" \"${SRCROOT}/${FRAMEWORK_DEVICE}.framework\"\n\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${SRCROOT}/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}\" \"${SRCROOT}/build/${CONFIGURATION}-iphoneos/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}\" \"${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_SIMULATOR}.framework/${FRAMEWORK_SIMULATOR}\"\n\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+			shellScript = "sh \"${SRCROOT}/concat.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1472,6 +1484,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		795F0B361F224CCA00FB95D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 799F99F31F1E2CDA0010B6B1 /* PayCardsRecognizer */;
+			targetProxy = 795F0B351F224CCA00FB95D9 /* PBXContainerItemProxy */;
+		};
 		85C7A1101F21FA44009A84DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8501D5CE1F20F8CF00FAA7A5 /* UniversalFramework */;

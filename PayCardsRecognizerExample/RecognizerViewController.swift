@@ -96,7 +96,7 @@ class RecognizerViewController: UIViewController, PayCardsRecognizerPlatformDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CardDetailsViewController
-        vc.result = sender as! PayCardsRecognizerResult
+        vc.result = sender as? PayCardsRecognizerResult
     }
 
 }

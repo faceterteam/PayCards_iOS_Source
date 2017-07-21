@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "PayCardsRecognizerResult.h"
 
-#include "Enums.h"
-
 extern NSString * _Nonnull const WOCardNumber;
 extern NSString * _Nonnull const WOExpDate;
 extern NSString * _Nonnull const WOHolderName;
@@ -31,13 +29,21 @@ typedef NS_ENUM(NSUInteger, PayCardsRecognizerResultMode) {
     PayCardsRecognizerResultModeSync, // All recognized data will be return at one time.
 };
 
+typedef NS_ENUM(NSUInteger, PayCardsRecognizerDataMode) {
+    PayCardsRecognizerDataModeNone = 0,
+    PayCardsRecognizerDataModeNumber = 1,
+    PayCardsRecognizerDataModeDate = 2,
+    PayCardsRecognizerDataModeName = 4,
+    PayCardsRecognizerDataModeGrabCardImage = 8
+};
+
 @protocol PayCardsRecognizerPlatformDelegate;
 
 @interface PayCardsRecognizer : NSObject
 
 - (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container;
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container;
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container;
 
 @property (nonatomic, weak, nullable) id<PayCardsRecognizerPlatformDelegate> delegate;
 

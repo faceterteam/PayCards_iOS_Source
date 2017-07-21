@@ -121,8 +121,6 @@ using namespace std;
 
 @property (nonatomic, strong) GPUImageView *view;
 
-@property (nonatomic, strong) UIView *simulatorView;
-
 @property (nonatomic, weak) UIView *container;
 
 @property (nonatomic, strong) UILabel *recognizedNumberLabel;
@@ -130,6 +128,8 @@ using namespace std;
 @property (nonatomic, strong) UILabel *recognizedNameLabel;
 
 @property (nonatomic, strong) UILabel *recognizedDateLabel;
+
+@property (nonatomic, strong) UIButton *copyrightButton;
 
 @property (nonatomic, assign) PayCardsRecognizerResultMode resultMode;
 
@@ -140,28 +140,27 @@ using namespace std;
 @implementation PayCardsRecognizer
 
 - (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container {
-    return [self initWithDelegate:delegate recognizerMode:(PayCardsRecognizerMode)(PayCardsRecognizerModeNumber|PayCardsRecognizerModeDate|PayCardsRecognizerModeName|PayCardsRecognizerModeGrabCardImage) resultMode:resultMode container:container];
+    return [self initWithDelegate:delegate recognizerMode:(PayCardsRecognizerDataMode)(PayCardsRecognizerDataModeNumber|PayCardsRecognizerDataModeDate|PayCardsRecognizerDataModeName|PayCardsRecognizerDataModeGrabCardImage) resultMode:resultMode container:container];
 }
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container {
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container {
     self = [super init];
     if (self) {
+        
+        NSInteger recognizerModeInt = recognizerMode;
+        PayCardsRecognizerMode recognizerModeInternal = (PayCardsRecognizerMode)recognizerModeInt;
         
         self.delegate = delegate;
         self.container = container;
         self.resultMode = resultMode;
-        self.recognizerMode = recognizerMode;
+        self.recognizerMode = recognizerModeInternal;
         
         if([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [[UIScreen mainScreen] bounds].size.height == 480) {
             _captureAreaWidth = 16;
         } else {
             _captureAreaWidth = 32;
         }
-#if TARGET_IPHONE_SIMULATOR
-        
-#else
-        [self deployCameraWithMode:recognizerMode];
-#endif
+        [self deployCameraWithMode:recognizerModeInternal];
     }
     
     return self;
@@ -251,10 +250,6 @@ using namespace std;
 
 - (void)startCameraWithOrientation:(UIInterfaceOrientation)orientation {
     
-#if TARGET_IPHONE_SIMULATOR
-    [self.container addSubview:self.simulatorView];
-    [self autoPinSimulatorViewToContainer];
-#else
     [self.container addSubview:self.view];
     [self autoPinToContainer];
     
@@ -266,7 +261,6 @@ using namespace std;
     [self.videoCamera startCameraCapture];
     [self setOrientation:orientation];
     [self setIsIdle:NO];
-#endif
 }
 
 - (void)torchStatusDidChange:(BOOL)status {
@@ -397,13 +391,6 @@ using namespace std;
     [self.container addConstraintWithItem:self.view attribute:NSLayoutAttributeLeft];
 }
 
-- (void)autoPinSimulatorViewToContainer {
-    [self.container addConstraintWithItem:self.simulatorView attribute:NSLayoutAttributeTop];
-    [self.container addConstraintWithItem:self.simulatorView attribute:NSLayoutAttributeRight];
-    [self.container addConstraintWithItem:self.simulatorView attribute:NSLayoutAttributeBottom];
-    [self.container addConstraintWithItem:self.simulatorView attribute:NSLayoutAttributeLeft];
-}
-
 @end
 
 @implementation PayCardsRecognizer (CardDataDrawer)
@@ -466,6 +453,11 @@ using namespace std;
     [_view addConstraintWithItem:self.labelsHolderView attribute:NSLayoutAttributeBottom toItem:self.frameImageView];
     [_view addConstraintWithItem:self.labelsHolderView attribute:NSLayoutAttributeLeft toItem:self.frameImageView];
     
+    [_view addSubview:self.copyrightButton];
+    
+    [_view addConstraintWithItem:self.copyrightButton attribute:NSLayoutAttributeLeft toItem:_view attribute:NSLayoutAttributeLeft constant:8];
+    [_view addConstraintWithItem:self.copyrightButton attribute:NSLayoutAttributeBottom toItem:_view attribute:NSLayoutAttributeBottom constant:-4];
+    
     return _view;
 }
 
@@ -491,53 +483,6 @@ using namespace std;
     _edgesWrapperView = [[WOEdgesWrapperView alloc] init];
     
     return _edgesWrapperView;
-}
-
-- (UIView *)simulatorView {
-    if (_simulatorView) {
-        return _simulatorView;
-    }
-    
-    _simulatorView = [[UIView alloc] initWithFrame:self.container.bounds];
-    _simulatorView.backgroundColor = [UIColor colorWithRed:0.937 green:0.937 blue:0.957 alpha:1];
-    _simulatorView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    label.numberOfLines = 0;
-    label.text = NSLocalizedString(@"Recognizer is not available in simulator but you can call delegate method with example data", nil);
-    label.textColor = [UIColor darkGrayColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.translatesAutoresizingMaskIntoConstraints = NO;
-    [button setTitle:NSLocalizedString(@"Call did recognize", nil) forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(callExmpleDelegate) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIView *holder = [[UIView alloc] init];
-    holder.translatesAutoresizingMaskIntoConstraints = NO;
-    holder.backgroundColor = [UIColor clearColor];
-    
-    [holder addSubview:label];
-    [holder addSubview:button];
-    
-    [_simulatorView addSubview:holder];
-    
-    [holder addConstraintWithItem:label attribute:NSLayoutAttributeTop];
-    [holder addConstraintWithItem:label attribute:NSLayoutAttributeRight];
-    [holder addConstraintWithItem:label attribute:NSLayoutAttributeLeft];
-    
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeBottom];
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeRight];
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeLeft];
-    
-    [holder addConstraintWithItem:button attribute:NSLayoutAttributeTop toItem:label attribute:NSLayoutAttributeBottom constant: 8.0];
-    
-    [_simulatorView addConstraintWithItem:holder attribute:NSLayoutAttributeCenterY];
-    [_simulatorView addConstraintWithItem:holder attribute:NSLayoutAttributeLeft toItem:_simulatorView attribute:NSLayoutAttributeLeft constant: 15.0];
-    [_simulatorView addConstraintWithItem:_simulatorView attribute:NSLayoutAttributeRight toItem:holder attribute:NSLayoutAttributeRight constant: 15.0];
-    
-    return _simulatorView;
 }
      
  - (void)callExmpleDelegate {
@@ -621,6 +566,29 @@ using namespace std;
     _recognizedNameLabel.adjustsFontSizeToFitWidth = YES;
     
     return _recognizedNameLabel;
+}
+
+-(UIButton *)copyrightButton {
+    if (_copyrightButton) {
+        return _copyrightButton;
+    }
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:10], NSForegroundColorAttributeName: [UIColor colorWithWhite:1 alpha:0.5], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Powered by pay.cards", "") attributes:attributes];
+    
+    _copyrightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _copyrightButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_copyrightButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+    [_copyrightButton addTarget:self action:@selector(tapCopyright) forControlEvents:UIControlEventTouchUpInside];
+    
+    return _copyrightButton;
+}
+
+- (void)tapCopyright {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://pay.cards"] options:@{} completionHandler:^(BOOL success) {
+        
+    }];
 }
 
 @end
