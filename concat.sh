@@ -30,6 +30,9 @@ cp -r "${SRCROOT}/build/${CONFIGURATION}-iphoneos/${FRAMEWORK_DEVICE}.framework"
 # frameworks' executables with lipo.
 lipo -create -output "${SRCROOT}/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}" "${SRCROOT}/build/${CONFIGURATION}-iphoneos/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}" "${SRCROOT}/build/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_SIMULATOR}.framework/${FRAMEWORK_SIMULATOR}"
 
+# Fix simulator rpath
+install_name_tool -id "@rpath/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}" "${SRCROOT}/${FRAMEWORK_DEVICE}.framework/${FRAMEWORK_DEVICE}"
+
 # Delete the most recent build.
 if [ -d "${SRCROOT}/build" ]; then
 rm -rf "${SRCROOT}/build"
