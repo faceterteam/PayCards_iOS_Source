@@ -659,7 +659,6 @@
 				799F9A231F1E2D260010B6B1 /* Resources */,
 				799F9A1C1F1E2D260010B6B1 /* DateRecognizer */,
 				799F9A251F1E2D260010B6B1 /* Utils */,
-				799F9A1D1F1E2D260010B6B1 /* PanRecognizer */,
 				8501D59E1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h */,
 				799F9A1E1F1E2D260010B6B1 /* PayCardsRecognizer.mm */,
 				799F9A1F1F1E2D260010B6B1 /* PayCardsRecognizerDelegate.h */,
@@ -679,13 +678,6 @@
 			children = (
 			);
 			path = DateRecognizer;
-			sourceTree = "<group>";
-		};
-		799F9A1D1F1E2D260010B6B1 /* PanRecognizer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PanRecognizer;
 			sourceTree = "<group>";
 		};
 		799F9A231F1E2D260010B6B1 /* Resources */ = {
