@@ -87,14 +87,9 @@
     UILabel *label = [[UILabel alloc] init];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.numberOfLines = 0;
-    label.text = NSLocalizedString(@"Recognizer is not available in simulator but you can call delegate method with example data", nil);
+    label.text = NSLocalizedString(@"Recognizer is not available in simulator", nil);
     label.textColor = [UIColor darkGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.translatesAutoresizingMaskIntoConstraints = NO;
-    [button setTitle:NSLocalizedString(@"Call did recognize", nil) forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(callExmpleDelegate) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *holder = [[UIView alloc] init];
     holder.translatesAutoresizingMaskIntoConstraints = NO;
