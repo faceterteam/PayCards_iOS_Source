@@ -14,8 +14,8 @@ fi
 
 # Build the framework for device and for simulator
 # (using all needed architectures).
-xcodebuild -target "${FRAMEWORK_DEVICE}" -configuration "${CONFIGURATION}" -arch arm64 -arch armv7 only_active_arch=no defines_module=yes -sdk "iphoneos"
-xcodebuild -target "${FRAMEWORK_SIMULATOR}" -configuration "${CONFIGURATION}" -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk "iphonesimulator"
+xcodebuild -target "${FRAMEWORK_DEVICE}" -configuration "${CONFIGURATION}" -arch arm64 -arch armv7 only_active_arch=no BITCODE_GENERATION_MODE=bitcode defines_module=yes -sdk "iphoneos"
+xcodebuild -target "${FRAMEWORK_SIMULATOR}" -configuration "${CONFIGURATION}" -arch x86_64 -arch i386 only_active_arch=no BITCODE_GENERATION_MODE=bitcode defines_module=yes -sdk "iphonesimulator"
 
 # Remove .framework file from previous run if exists.
 if [ -d "${SRCROOT}/${FRAMEWORK_DEVICE}.framework" ]; then
