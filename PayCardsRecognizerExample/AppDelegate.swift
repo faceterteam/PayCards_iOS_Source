@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  PayCardsRecognizerExample
 //
-//  Created by Vitaliy Kuzmenko on 18/07/2017.
-//  Copyright © 2017 Wallet One. All rights reserved.
+//  Created by Vitaliy Kuzmenko on 21/07/2017.
+//  Copyright © 2017 Vitaliy Kuzmenko. All rights reserved.
 //
 
 import UIKit
