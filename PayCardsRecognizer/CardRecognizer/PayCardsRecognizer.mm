@@ -141,11 +141,11 @@ using namespace std;
 
 @implementation PayCardsRecognizer
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor *)frameColor {
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor * _Nonnull)frameColor {
     return [self initWithDelegate:delegate recognizerMode:(PayCardsRecognizerDataMode)(PayCardsRecognizerDataModeNumber|PayCardsRecognizerDataModeDate|PayCardsRecognizerDataModeName|PayCardsRecognizerDataModeGrabCardImage) resultMode:resultMode container:container frameColor: frameColor];
 }
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor *)frameColor {
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor * _Nonnull)frameColor {
     self = [super init];
     if (self) {
         

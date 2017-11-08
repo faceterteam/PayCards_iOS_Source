@@ -192,7 +192,9 @@ void CRecognitionCoreDelegate::CardImageDidExtract(cv::Mat cardImage)
                     _result = nil;
                 });
             } else {
-                [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
+                });
             }
             
             
@@ -229,7 +231,9 @@ void CRecognitionCoreDelegate::CardImageDidExtract(cv::Mat cardImage)
             
             if (numberIsFilled && exirationIsFilled && nameIsFilled) {
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    
                     [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
+                    
                     if (_result.isCompleted) {
                         _result = nil;
                     }
