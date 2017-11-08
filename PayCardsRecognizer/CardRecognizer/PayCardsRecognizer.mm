@@ -135,15 +135,17 @@ using namespace std;
 
 @property (nonatomic, assign) PayCardsRecognizerMode recognizerMode;
 
+@property (nonatomic, strong) UIColor *frameColor;
+
 @end
 
 @implementation PayCardsRecognizer
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container {
-    return [self initWithDelegate:delegate recognizerMode:(PayCardsRecognizerDataMode)(PayCardsRecognizerDataModeNumber|PayCardsRecognizerDataModeDate|PayCardsRecognizerDataModeName|PayCardsRecognizerDataModeGrabCardImage) resultMode:resultMode container:container];
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor *)frameColor {
+    return [self initWithDelegate:delegate recognizerMode:(PayCardsRecognizerDataMode)(PayCardsRecognizerDataModeNumber|PayCardsRecognizerDataModeDate|PayCardsRecognizerDataModeName|PayCardsRecognizerDataModeGrabCardImage) resultMode:resultMode container:container frameColor: frameColor];
 }
 
-- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container {
+- (instancetype _Nonnull)initWithDelegate:(id<PayCardsRecognizerPlatformDelegate> _Nonnull)delegate recognizerMode:(PayCardsRecognizerDataMode)recognizerMode resultMode:(PayCardsRecognizerResultMode)resultMode container:(UIView * _Nonnull)container frameColor:(UIColor *)frameColor {
     self = [super init];
     if (self) {
         
@@ -154,6 +156,7 @@ using namespace std;
         self.container = container;
         self.resultMode = resultMode;
         self.recognizerMode = recognizerModeInternal;
+        self.frameColor = frameColor;
         
         if([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [[UIScreen mainScreen] bounds].size.height == 480) {
             _captureAreaWidth = 16;
@@ -256,7 +259,7 @@ using namespace std;
     self.videoCamera.delegate = self;
     
     [self.videoCamera addTarget:self.view];
-    [self.videoCamera setFixedFocuse:0.48 completion:nil];
+    [self.videoCamera setFixedFocuse:0.6 completion:nil];
     
     [self.videoCamera startCameraCapture];
     [self setOrientation:orientation];
@@ -468,7 +471,14 @@ using namespace std;
     
     UIImage *image = [UIImage imageWithContentsOfFile:[self pathToResource:@"PortraitFrame.png"]];
     
-    _frameImageView = [[UIImageView alloc] initWithImage:image];
+    UIImage *newImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, newImage.scale);
+    [self.frameColor set];
+    [newImage drawInRect:CGRectMake(0, 0, image.size.width, newImage.size.height)];
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    _frameImageView = [[UIImageView alloc] initWithImage: newImage];
     _frameImageView.contentMode = UIViewContentModeScaleToFill;
     _frameImageView.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -480,7 +490,7 @@ using namespace std;
         return _edgesWrapperView;
     }
     
-    _edgesWrapperView = [[WOEdgesWrapperView alloc] init];
+    _edgesWrapperView = [[WOEdgesWrapperView alloc] initWithColor:self.frameColor];
     
     return _edgesWrapperView;
 }
