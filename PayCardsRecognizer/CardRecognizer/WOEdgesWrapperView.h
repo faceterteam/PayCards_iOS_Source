@@ -15,4 +15,6 @@
 @property(nonatomic,strong) UIView *leftEdge;
 @property(nonatomic,strong) UIView *rightEdge;
 
+- (instancetype)initWithColor:(UIColor *)color;
+
 @end

@@ -24,6 +24,8 @@
 		795F0B2D1F22484C00FB95D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795F0B2C1F22484C00FB95D9 /* UIKit.framework */; };
 		795F0B331F224CCA00FB95D9 /* PayCardsRecognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; };
 		795F0B341F224CCA00FB95D9 /* PayCardsRecognizer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79972EAF1FB318400069ADF3 /* PortraitFrame@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79972EAD1FB318400069ADF3 /* PortraitFrame@3x.png */; };
+		79972EB01FB318400069ADF3 /* PortraitFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79972EAE1FB318400069ADF3 /* PortraitFrame@2x.png */; };
 		799F99E01F1E2CC20010B6B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F99DF1F1E2CC20010B6B1 /* AppDelegate.swift */; };
 		799F99E51F1E2CC20010B6B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799F99E31F1E2CC20010B6B1 /* Main.storyboard */; };
 		799F99E71F1E2CC20010B6B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799F99E61F1E2CC20010B6B1 /* Assets.xcassets */; };
@@ -218,7 +220,6 @@
 		799F9BB01F1E2D260010B6B1 /* wire_format_lite.cc in Sources */ = {isa = PBXBuildFile; fileRef = 799F9ADE1F1E2D260010B6B1 /* wire_format_lite.cc */; };
 		799F9BB11F1E2D260010B6B1 /* wire_format_lite.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F9ADF1F1E2D260010B6B1 /* wire_format_lite.h */; };
 		799F9BB21F1E2D260010B6B1 /* wire_format_lite_inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F9AE01F1E2D260010B6B1 /* wire_format_lite_inl.h */; };
-		799F9BB31F1E2D260010B6B1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 799F9AE11F1E2D260010B6B1 /* LICENSE */; };
 		799F9BB41F1E2D260010B6B1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 799F9AE21F1E2D260010B6B1 /* README.md */; };
 		799F9BB51F1E2D260010B6B1 /* GLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F9AE41F1E2D260010B6B1 /* GLProgram.h */; };
 		799F9BB61F1E2D260010B6B1 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 799F9AE51F1E2D260010B6B1 /* GLProgram.m */; };
@@ -281,6 +282,8 @@
 
 /* Begin PBXFileReference section */
 		795F0B2C1F22484C00FB95D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		79972EAD1FB318400069ADF3 /* PortraitFrame@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PortraitFrame@3x.png"; sourceTree = "<group>"; };
+		79972EAE1FB318400069ADF3 /* PortraitFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PortraitFrame@2x.png"; sourceTree = "<group>"; };
 		799F99DD1F1E2CC20010B6B1 /* PayCardsRecognizerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayCardsRecognizerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799F99DF1F1E2CC20010B6B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799F99E41F1E2CC20010B6B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -667,7 +670,6 @@
 			isa = PBXGroup;
 			children = (
 				799F9A231F1E2D260010B6B1 /* Resources */,
-				799F9A1C1F1E2D260010B6B1 /* DateRecognizer */,
 				799F9A251F1E2D260010B6B1 /* Utils */,
 				8501D59E1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h */,
 				799F9A1E1F1E2D260010B6B1 /* PayCardsRecognizer.mm */,
@@ -683,17 +685,12 @@
 			path = CardRecognizer;
 			sourceTree = "<group>";
 		};
-		799F9A1C1F1E2D260010B6B1 /* DateRecognizer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DateRecognizer;
-			sourceTree = "<group>";
-		};
 		799F9A231F1E2D260010B6B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				799F9A241F1E2D260010B6B1 /* PortraitFrame.png */,
+				79972EAE1FB318400069ADF3 /* PortraitFrame@2x.png */,
+				79972EAD1FB318400069ADF3 /* PortraitFrame@3x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1321,10 +1318,11 @@
 				799F9AF41F1E2D260010B6B1 /* cascade_date.xml in Resources */,
 				799F9AFE1F1E2D260010B6B1 /* names.txt in Resources */,
 				799F9B031F1E2D260010B6B1 /* loc_y.caffemodel in Resources */,
+				79972EB01FB318400069ADF3 /* PortraitFrame@2x.png in Resources */,
 				799F9B001F1E2D260010B6B1 /* NameSpaceCharRecognition.prototxt in Resources */,
+				79972EAF1FB318400069ADF3 /* PortraitFrame@3x.png in Resources */,
 				799F9AF91F1E2D260010B6B1 /* DateRecognition.caffemodel in Resources */,
 				799F9B6C1F1E2D260010B6B1 /* caffe.proto in Resources */,
-				799F9BB31F1E2D260010B6B1 /* LICENSE in Resources */,
 				799F9AFA1F1E2D260010B6B1 /* DateRecognition.prototxt in Resources */,
 				799F9B0C1F1E2D260010B6B1 /* PortraitFrame.png in Resources */,
 				799F9B021F1E2D260010B6B1 /* loc_x.prototxt in Resources */,
