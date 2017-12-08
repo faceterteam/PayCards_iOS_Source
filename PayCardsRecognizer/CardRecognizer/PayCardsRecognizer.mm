@@ -261,6 +261,7 @@ using namespace std;
     [self.videoCamera addTarget:self.view];
     [self.videoCamera setFixedFocuse:0.6 completion:nil];
     
+    
     [self.videoCamera startCameraCapture];
     [self setOrientation:orientation];
     [self setIsIdle:NO];
