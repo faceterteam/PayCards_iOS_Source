@@ -8,32 +8,41 @@
 
 #import "WOEdgesWrapperView.h"
 
-static const float kEdgesCornerPadding = 10.0;
-static const float kThickness = 4.0;
+static const float kEdgesCornerPadding = 50.0;
+static const float kThickness = 5.0;
 
 @implementation WOEdgesWrapperView
 
-- (instancetype)init
+- (instancetype)initWithColor:(UIColor *)color
 {
     self = [super init];
     if(self) {
         self.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:182.0/255.0 green:255.0/255.0 blue:102.0/255.0 alpha:1.0];
-        self.frame = CGRectMake(0, 0, 4., 4.);
+        self.frame = CGRectMake(0, 0, 5., 5.);
         self.translatesAutoresizingMaskIntoConstraints = NO;
         
-        UIColor *edgeColor = [UIColor colorWithRed:182.0/255.0 green:255.0/255.0 blue:102.0/255.0 alpha:1.0];
-        
         _topEdge = [UIView new];
-        _topEdge.backgroundColor = edgeColor;
+        _topEdge.backgroundColor = color;
+        _topEdge.layer.cornerRadius = kThickness / 2;
+        
         [self addSubview:_topEdge];
+        
         _bottomEdge = [UIView new];
-        _bottomEdge.backgroundColor = edgeColor;
+        _bottomEdge.backgroundColor = color;
+        _bottomEdge.layer.cornerRadius = kThickness / 2;
+        
         [self addSubview:_bottomEdge];
+        
         _leftEdge = [UIView new];
-        _leftEdge.backgroundColor = edgeColor;
+        _leftEdge.backgroundColor = color;
+        _leftEdge.layer.cornerRadius = kThickness / 2;
+        
         [self addSubview:_leftEdge];
+        
         _rightEdge = [UIView new];
-        _rightEdge.backgroundColor = edgeColor;
+        _rightEdge.backgroundColor = color;
+        _rightEdge.layer.cornerRadius = kThickness / 2;
+        
         [self addSubview:_rightEdge];
     }
     

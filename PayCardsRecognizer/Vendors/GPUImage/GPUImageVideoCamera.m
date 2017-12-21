@@ -597,15 +597,8 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
         
         [device lockForConfiguration:nil];
         
-        if([device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
-        {
-            [device setFocusModeLockedWithLensPosition:position completionHandler:handler];
-        }
-        else
-        {
-            [device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
-        }
-        
+        [device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+
         [device unlockForConfiguration];
     }
 }
