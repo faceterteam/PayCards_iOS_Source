@@ -597,9 +597,11 @@ using namespace std;
 }
 
 - (void)tapCopyright {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://pay.cards"] options:@{} completionHandler:^(BOOL success) {
-        
-    }];
+    if (@available(iOS 10, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://pay.cards"] options:@{} completionHandler:^(BOOL success) {}];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://pay.cards"]];
+    }
 }
 
 @end
