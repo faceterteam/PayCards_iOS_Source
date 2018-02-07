@@ -27,7 +27,6 @@
     
     self.recognizedExpireDateMonth = [expiration substringWithRange:NSMakeRange(0, 2)];
     self.recognizedExpireDateYear = [expiration substringWithRange:NSMakeRange(2, 2)];
-    self.image = dictionary[WOCardImage];
     
     NSValue *value = dictionary[WOPanRect];
     

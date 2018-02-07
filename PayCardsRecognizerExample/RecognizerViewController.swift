@@ -45,6 +45,8 @@ class RecognizerViewController: UIViewController, PayCardsRecognizerPlatformDele
     
     @IBOutlet weak var recognizerContainer: UIView!
     
+    @IBOutlet weak var tmpImageView: UIImageView!
+    
     lazy var activityView: UIBarButtonItem = {
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activityView.startAnimating()
@@ -54,6 +56,7 @@ class RecognizerViewController: UIViewController, PayCardsRecognizerPlatformDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         recognizer = PayCardsRecognizer(delegate: self, resultMode: .async, container: recognizerContainer, frameColor: UIColor(red:0.008,  green:0.478,  blue:1, alpha:1))
     }
     
@@ -74,7 +77,6 @@ class RecognizerViewController: UIViewController, PayCardsRecognizerPlatformDele
         
         print(result)
         print(result.dictionary as NSDictionary)
-        
         
         if result.isCompleted {
             performSegue(withIdentifier: "CardDetailsViewController", sender: result)

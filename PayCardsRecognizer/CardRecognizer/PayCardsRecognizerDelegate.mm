@@ -27,6 +27,11 @@ static const std::vector<string> alphabet = {" ","A","B","C","D","E","F","G","H"
 
 @property (nonatomic, strong) PayCardsRecognizerResult *result;
 
+@property (nonatomic, assign) BOOL numberIsFilled;
+@property (nonatomic, assign) BOOL exirationIsFilled;
+@property (nonatomic, assign) BOOL nameIsFilled;
+@property (nonatomic, assign) BOOL imageIsFilled;
+
 @end
 
 @interface PayCardsRecognizer()
@@ -182,7 +187,7 @@ void CRecognitionCoreDelegate::CardImageDidExtract(cv::Mat cardImage)
         [_result setData:resultDict];
         
         if (_recognizer.resultMode == PayCardsRecognizerResultModeAsync) {
-            if (flags&PayCardsRecognizerModeName || !_recognizer.recognizerMode&PayCardsRecognizerModeName) {
+            if (flags&PayCardsRecognizerModeName || !(_recognizer.recognizerMode&PayCardsRecognizerModeName)) {
                 _result.isCompleted = true;
             }
             
@@ -200,36 +205,36 @@ void CRecognitionCoreDelegate::CardImageDidExtract(cv::Mat cardImage)
             
         } else if (_recognizer.resultMode == PayCardsRecognizerResultModeSync) {
             
-            BOOL numberIsFilled = YES;
-            BOOL exirationIsFilled = YES;
-            BOOL nameIsFilled = YES;
-            BOOL imageIsFilled = YES;
+            self.numberIsFilled = YES;
+            self.exirationIsFilled = YES;
+            self.nameIsFilled = YES;
+            self.imageIsFilled = YES;
             
             if (_recognizer.recognizerMode&PayCardsRecognizerModeNumber) {
                 if (_result.recognizedNumber.length == 0) {
-                    numberIsFilled = NO;
+                    self.numberIsFilled = NO;
                 }
             }
             
             if (_recognizer.recognizerMode&PayCardsRecognizerModeDate) {
                 if (_result.recognizedExpireDateMonth.length == 0) {
-                    exirationIsFilled = NO;
+                    self.exirationIsFilled = NO;
                 }
             }
             
             if (_recognizer.recognizerMode&PayCardsRecognizerModeName) {
-                if (!flags&PayCardsRecognizerModeName) {
-                    nameIsFilled = NO;
+                if (!(flags&PayCardsRecognizerModeName)) {
+                    self.nameIsFilled = NO;
                 }
             }
             
             if (_recognizer.recognizerMode&PayCardsRecognizerModeGrabCardImage) {
                 if (_result.image == nil) {
-                    imageIsFilled = NO;
+                    self.imageIsFilled = NO;
                 }
             }
             
-            if (numberIsFilled && exirationIsFilled && nameIsFilled) {
+            if (self.numberIsFilled && self.exirationIsFilled && self.nameIsFilled && self.imageIsFilled) {
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     
                     [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
@@ -240,16 +245,38 @@ void CRecognitionCoreDelegate::CardImageDidExtract(cv::Mat cardImage)
                 });
             }
         }
-//    });
 }
 
 - (void)cardImageDidExtract:(cv::Mat)cardImage
 {
-//    UIImage *image = [WOUtils imageFromMat:cardImage];
-//    
-//    dispatch_sync(dispatch_get_main_queue(), ^{
-//        [_delegate cardImageDidExtract:image];
-//    });
+    UIImage *image = [WOUtils imageFromMat:cardImage];
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        _result.image = image;
+        
+        if (_recognizer.resultMode == PayCardsRecognizerResultModeAsync) {
+            [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
+            if (_result.isCompleted) {
+                _result = nil;
+            }
+        } else if (_recognizer.resultMode == PayCardsRecognizerResultModeSync) {
+            
+            if (_recognizer.recognizerMode&PayCardsRecognizerModeGrabCardImage) {
+                if (_result.image == nil) {
+                    self.imageIsFilled = NO;
+                }
+            }
+            
+            if (self.numberIsFilled && self.exirationIsFilled && self.nameIsFilled && self.imageIsFilled) {
+                
+                [_delegate payCardsRecognizer:_recognizer didRecognize:_result];
+                if (_result.isCompleted) {
+                    _result = nil;
+                }
+            }
+        }
+    });
 }
 
 @end
