@@ -314,7 +314,7 @@ bool CNumberRecognizer::CheckSum(const shared_ptr<INeuralNetworkResultList>& res
         number.push_back(result->GetMaxIndex());
     }
     
-    if (number[0] != 5 && number[0] != 4 && number[0] != 2) {
+    if (number[0] != 5 && number[0] != 4 && number[0] != 2 && number[0] != 9  && number[0] != 6) {
         return false;
     }
     

@@ -508,7 +508,6 @@
 		8501D5A31F1F8ED000FAA7A5 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		8501D5B31F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizerResult.mm; sourceTree = "<group>"; };
 		8501D5B41F1FAC0700FAA7A5 /* PayCardsRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizer.mm; sourceTree = "<group>"; };
-		85C7A10C1F21F7F0009A84DC /* PayCardsRecognizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PayCardsRecognizer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,7 +544,6 @@
 		799F99BB1F1E2BF80010B6B1 = {
 			isa = PBXGroup;
 			children = (
-				85C7A10C1F21F7F0009A84DC /* PayCardsRecognizer.framework */,
 				799F99DE1F1E2CC20010B6B1 /* PayCardsRecognizerExample */,
 				799F99F51F1E2CDA0010B6B1 /* PayCardsRecognizer */,
 				8501D5AF1F1FA9A900FAA7A5 /* PayCardsRecognizerSim */,
