@@ -48,7 +48,7 @@ class RecognizerViewController: UIViewController, PayCardsRecognizerPlatformDele
     @IBOutlet weak var tmpImageView: UIImageView!
     
     lazy var activityView: UIBarButtonItem = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let activityView = UIActivityIndicatorView(style: .gray)
         activityView.startAnimating()
         let item = UIBarButtonItem(customView: activityView)
         return item

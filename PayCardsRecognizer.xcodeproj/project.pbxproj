@@ -1250,7 +1250,7 @@
 				TargetAttributes = {
 					799F99DC1F1E2CC20010B6B1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 7F9FM9B29E;
+						DevelopmentTeam = 3R68P2RPLF;
 						ProvisioningStyle = Automatic;
 					};
 					799F99F31F1E2CDA0010B6B1 = {
@@ -1272,6 +1272,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1612,7 +1613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = 7F9FM9B29E;
+				DEVELOPMENT_TEAM = 3R68P2RPLF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1622,7 +1623,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.azoft.demo.crn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
@@ -1633,7 +1634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = 7F9FM9B29E;
+				DEVELOPMENT_TEAM = 3R68P2RPLF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1643,7 +1644,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.azoft.demo.crn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
