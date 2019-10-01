@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		792B084C23435AAA004B484C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B084B23435AAA004B484C /* String+Extensions.swift */; };
 		795F0B2D1F22484C00FB95D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795F0B2C1F22484C00FB95D9 /* UIKit.framework */; };
 		795F0B331F224CCA00FB95D9 /* PayCardsRecognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; };
 		795F0B341F224CCA00FB95D9 /* PayCardsRecognizer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -281,6 +282,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		792B084B23435AAA004B484C /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		795F0B2C1F22484C00FB95D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		79972EAD1FB318400069ADF3 /* PortraitFrame@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PortraitFrame@3x.png"; sourceTree = "<group>"; };
 		79972EAE1FB318400069ADF3 /* PortraitFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PortraitFrame@2x.png"; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				799F9BC71F1E2DFD0010B6B1 /* RecognizerViewController.swift */,
 				799F9BC51F1E2DFD0010B6B1 /* CardDetailsViewController.swift */,
 				799F9BC61F1E2DFD0010B6B1 /* CompleteViewController.swift */,
+				792B084B23435AAA004B484C /* String+Extensions.swift */,
 				799F99E31F1E2CC20010B6B1 /* Main.storyboard */,
 				799F99E61F1E2CC20010B6B1 /* Assets.xcassets */,
 				799F99E81F1E2CC20010B6B1 /* LaunchScreen.storyboard */,
@@ -1360,6 +1363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792B084C23435AAA004B484C /* String+Extensions.swift in Sources */,
 				799F9BCA1F1E2DFD0010B6B1 /* RecognizerViewController.swift in Sources */,
 				799F9BC81F1E2DFD0010B6B1 /* CardDetailsViewController.swift in Sources */,
 				799F99E01F1E2CC20010B6B1 /* AppDelegate.swift in Sources */,

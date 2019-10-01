@@ -137,6 +137,8 @@ using namespace std;
 
 @property (nonatomic, strong) UIColor *frameColor;
 
+@property (nonatomic) int bytesPerRow;
+
 @end
 
 @implementation PayCardsRecognizer
@@ -163,6 +165,13 @@ using namespace std;
         } else {
             _captureAreaWidth = 32;
         }
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13.0) {
+            _bytesPerRow = 768;
+        } else {
+            _bytesPerRow = 720;
+        }
+        
         [self deployCameraWithMode:recognizerModeInternal];
     }
     
@@ -222,10 +231,10 @@ using namespace std;
     self.videoCamera.delegate = self;
     
     int bufferHeightY = 1280;
-    int bytesPerRowY = 720;
+    int bytesPerRowY = _bytesPerRow;
     
     int bufferHeightUV = 640;
-    int bytesPerRowUV = 720;
+    int bytesPerRowUV = _bytesPerRow;
     
     _bufferSizeY = bufferHeightY * bytesPerRowY;
     _bufferSizeUV = bufferHeightUV * bytesPerRowUV;

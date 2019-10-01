@@ -279,7 +279,8 @@ void CRecognitionCore::ProcessFrame(DetectedLineFlags& edgeFlags, void* bufferY,
 {
     if (!IsIdle() && _deployed) {
 
-        Mat frameMatY = cv::Mat(1280, 720, CV_8UC1, bufferY); //put buffer in open cv, no memory copied
+        int bytesPerRow = (int)bufferSizeY / 1280;
+        Mat frameMatY = cv::Mat(1280, bytesPerRow, CV_8UC1, bufferY); //put buffer in open cv, no memory copied
         
         if(auto edgesDetector = _edgesDetector.lock()) {
             if(auto recognitionResult = _recognitionResult.lock()) {
@@ -473,7 +474,8 @@ cv::Mat CRecognitionCore::CaptureView()
     
     if(auto frameStorage = _frameStorage.lock()) {
         if(auto edgesDetector = _edgesDetector.lock()) {
-            const size_t bufferLen = 720 * 1280 * 3 / 2 ;
+            const size_t bytesPerRow = (int)_bufferSizeY / 1280;
+            const size_t bufferLen = bytesPerRow * 1280 * 3 / 2 ;
             uint8_t *uPlane, *vPlane;
             void* imgBuffer = malloc(bufferLen);
             
@@ -505,7 +507,7 @@ cv::Mat CRecognitionCore::CaptureView()
             memcpy(((unsigned char *)imgBuffer) + _bufferSizeY, uPlane, planeSize);
             memcpy(((unsigned char *)imgBuffer) + _bufferSizeY + planeSize, vPlane, planeSize);
             
-            Mat yuv = Mat(1280 + 1280/2, 720, CV_8UC1, imgBuffer);
+            Mat yuv = Mat(1280 + 1280/2, (int)bytesPerRow, CV_8UC1, imgBuffer);
             
             Mat rgb;
             cvtColor(yuv, rgb, CV_YUV2RGB_I420);

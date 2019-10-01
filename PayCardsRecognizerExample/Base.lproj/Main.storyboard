@@ -309,7 +309,7 @@ or stored on device</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="expireDateTextField" destination="Z4b-VL-wT3" id="JKK-1a-ytP"/>
+                        <outlet property="expirationDateTextField" destination="Z4b-VL-wT3" id="DSQ-wc-xxe"/>
                         <outlet property="holderNameTextField" destination="m7M-1U-9uw" id="Qqd-bM-uFG"/>
                         <outlet property="numberTextField" destination="hQd-Xs-4KC" id="SqV-On-XfV"/>
                     </connections>
@@ -466,7 +466,7 @@ or stored on device</string>
         <!--Navigation Controller-->
         <scene sceneID="W3S-TS-tO7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bMb-QI-OVL" customClass="NavigationController" customModule="PayCardsRecognizerExample" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bMb-QI-OVL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" shadowImage="Transparent" id="yAS-2Z-wpT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
