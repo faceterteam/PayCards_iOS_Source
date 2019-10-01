@@ -16,7 +16,11 @@ class NavigationController: UINavigationController {
         
         navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Transparent"), for: .default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            navigationBar.backgroundColor = .systemBackground
+        } else {
+            navigationBar.backgroundColor = .white
+        }
     }
 }
 
