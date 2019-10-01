@@ -277,8 +277,8 @@ shared_ptr<INeuralNetworkResultList> CNameRecognizer::Process(cv::Mat& matrix, v
                     
                     if (charsCount > 5 && non < maxDoubtfulCount) {
                      
-                        resultStr.erase(resultStr.begin(), std::find_if(resultStr.begin(), resultStr.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
-                        resultStr.erase(std::find_if(resultStr.rbegin(), resultStr.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), resultStr.end());
+                        resultStr.erase(resultStr.begin(), std::find_if(resultStr.begin(), resultStr.end(), [](int c) {return !std::isspace(c);}));
+                        resultStr.erase(std::find_if(resultStr.rbegin(), resultStr.rend(), [](int c) {return !std::isspace(c);}).base(), resultStr.end());
 
                         istringstream iss(resultStr);
                         
