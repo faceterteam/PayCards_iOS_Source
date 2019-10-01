@@ -1354,7 +1354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh \"${SRCROOT}/concat.sh\"";
+			shellScript = "sh \"${SRCROOT}/concat.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
