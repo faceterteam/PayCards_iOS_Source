@@ -18,10 +18,10 @@ static const Size lowSize = Size(660,416);
 CFrameStorage::CFrameStorage() : _grayOrientation(PayCardsRecognizerOrientationUnknown), _yuvOrientation(PayCardsRecognizerOrientationUnknown)
 {
     int bufferHeightY = 1280;
-    int bytesPerRowY = 768;
+    int bytesPerRowY = 720;
     
     int bufferHeightUV = 640;
-    int bytesPerRowUV = 768;
+    int bytesPerRowUV = 720;
     
     _bufferSizeY = bufferHeightY * bytesPerRowY;
     _bufferY = malloc(_bufferSizeY);
