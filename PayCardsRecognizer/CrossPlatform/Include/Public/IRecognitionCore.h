@@ -37,7 +37,8 @@ public:
     
     static bool GetInstance(shared_ptr<IRecognitionCore> &recognitionCore,
                             const shared_ptr<IRecognitionCoreDelegate>& recognitionDelegate,
-                            const shared_ptr<ITorchDelegate>& torchDelegate);
+                            const shared_ptr<ITorchDelegate>& torchDelegate,
+                            int bytesPerRow);
     
     virtual void SetRecognitionMode(PayCardsRecognizerMode flag) = 0;
     

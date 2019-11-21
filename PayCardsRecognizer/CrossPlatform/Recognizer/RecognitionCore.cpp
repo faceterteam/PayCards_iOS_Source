@@ -27,13 +27,13 @@ static int dateRecognitionAttemptsCount = 0;
 
 bool IRecognitionCore::GetInstance(shared_ptr<IRecognitionCore> &recognitionCore,
                                    const shared_ptr<IRecognitionCoreDelegate>& recognitionDelegate,
-                                   const shared_ptr<ITorchDelegate>& torchDelegate)
+                                   const shared_ptr<ITorchDelegate>& torchDelegate, int bytesPerRow)
 {
-    recognitionCore = make_shared<CRecognitionCore>(recognitionDelegate, torchDelegate);
+    recognitionCore = make_shared<CRecognitionCore>(recognitionDelegate, torchDelegate, bytesPerRow);
     return recognitionCore != 0;
 }
 
-CRecognitionCore::CRecognitionCore(const shared_ptr<IRecognitionCoreDelegate>& delegate, const shared_ptr<ITorchDelegate>& torchDelegate) : _delegate(delegate), _orientation(PayCardsRecognizerOrientationPortrait), _mode(PayCardsRecognizerModeNone), _deployed(false)
+CRecognitionCore::CRecognitionCore(const shared_ptr<IRecognitionCoreDelegate>& delegate, const shared_ptr<ITorchDelegate>& torchDelegate, int bytesPerRow) : _delegate(delegate), _orientation(PayCardsRecognizerOrientationPortrait), _mode(PayCardsRecognizerModeNone), _deployed(false)
 {
     _isIdle.store(false);
     _isBusy.store(false);
@@ -42,6 +42,11 @@ CRecognitionCore::CRecognitionCore(const shared_ptr<IRecognitionCoreDelegate>& d
     
     _serviceContainerPtr->Initialize();
     _frameStorage = _serviceContainerPtr->resolve<IFrameStorage>();
+    
+    if(auto frameStorage = _frameStorage.lock()) {
+        frameStorage->SetBytesPerRow(bytesPerRow);
+    }
+    
     _edgesDetector = _serviceContainerPtr->resolve<IEdgesDetector>();
     _recognitionResult = _serviceContainerPtr->resolve<IRecognitionResult>();
     _torchManager = _serviceContainerPtr->resolve<ITorchManager>();

@@ -17,17 +17,6 @@ static const Size lowSize = Size(660,416);
 
 CFrameStorage::CFrameStorage() : _grayOrientation(PayCardsRecognizerOrientationUnknown), _yuvOrientation(PayCardsRecognizerOrientationUnknown)
 {
-    int bufferHeightY = 1280;
-    int bytesPerRowY = 720;
-    
-    int bufferHeightUV = 640;
-    int bytesPerRowUV = 720;
-    
-    _bufferSizeY = bufferHeightY * bytesPerRowY;
-    _bufferY = malloc(_bufferSizeY);
-    
-    _bufferSizeUV = bufferHeightUV * bytesPerRowUV;
-    _bufferUV = malloc(_bufferSizeUV);
 }
 
 CFrameStorage::~CFrameStorage()
@@ -35,6 +24,18 @@ CFrameStorage::~CFrameStorage()
     _edges.clear();
     free(_bufferY);
     free(_bufferUV);
+}
+
+void CFrameStorage::SetBytesPerRow(int bytesPerRow)
+{
+    int bufferHeightY = 1280;
+    int bufferHeightUV = 640;
+    
+    _bufferSizeY = bufferHeightY * bytesPerRow;
+    _bufferY = malloc(_bufferSizeY);
+    
+    _bufferSizeUV = bufferHeightUV * bytesPerRow;
+    _bufferUV = malloc(_bufferSizeUV);
 }
 
 bool CFrameStorage::SetRawFrame(const Mat& rawFrame, const vector<ParametricLine>& edges, PayCardsRecognizerOrientation orientation)

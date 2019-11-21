@@ -35,7 +35,8 @@ public:
     virtual ~IFrameStorage() {}
     
 public:
-
+    virtual void SetBytesPerRow(int bytesPerRow) = 0;
+    
     virtual bool SetRawFrame(const Mat& rawFrame, const vector<ParametricLine>& edges, PayCardsRecognizerOrientation orientation) = 0;
     
     virtual bool NormalizeMatrix(const Mat& matrix, const vector<ParametricLine>& edges, Mat& resultMatrix) = 0;

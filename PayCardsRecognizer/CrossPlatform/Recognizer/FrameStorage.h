@@ -20,7 +20,7 @@ public:
     virtual ~CFrameStorage();
     
 public:
-    
+    virtual void SetBytesPerRow(int bytesPerRow);
     virtual bool SetRawFrame(const Mat& rawFrame, const vector<ParametricLine>& edges, PayCardsRecognizerOrientation orientation);
     
     virtual bool NormalizeMatrix(const Mat& matrix, const vector<ParametricLine>& edges, Mat& resultMatrix);

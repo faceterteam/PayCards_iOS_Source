@@ -29,7 +29,7 @@ class CRecognitionCore : public IRecognitionCore
 {
     
 public:
-    CRecognitionCore(const shared_ptr<IRecognitionCoreDelegate>& delegate, const shared_ptr<ITorchDelegate>& torchDelegate);
+    CRecognitionCore(const shared_ptr<IRecognitionCoreDelegate>& delegate, const shared_ptr<ITorchDelegate>& torchDelegate, int bytesPerRow);
     
     virtual ~CRecognitionCore();
     

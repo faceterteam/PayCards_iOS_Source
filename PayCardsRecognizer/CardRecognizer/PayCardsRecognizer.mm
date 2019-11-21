@@ -195,7 +195,7 @@ using namespace std;
     IRecognitionCoreDelegate::GetInstance(coreDelegate, (__bridge void*)_delegate, (__bridge void*)self);
     shared_ptr<ITorchDelegate> torchDelegate;
     ITorchDelegate::GetInstance(torchDelegate, (__bridge void*)self);
-    IRecognitionCore::GetInstance(_recognitionCore, coreDelegate, torchDelegate);
+    IRecognitionCore::GetInstance(_recognitionCore, coreDelegate, torchDelegate, _bytesPerRow);
     _recognitionCore->SetRecognitionMode(mode);
     _recognitionCore->SetPathNumberLocalizationXModel([self getString:[self pathToResource:@"loc_x.caffemodel"]]);
     _recognitionCore->SetPathNumberLocalizationXStruct([self getString:[self pathToResource:@"loc_x.prototxt"]]);
