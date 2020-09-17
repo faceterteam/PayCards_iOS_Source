@@ -18,6 +18,17 @@
 			name = UniversalFramework;
 			productName = UniversalFramework;
 		};
+		FA8A237A2513764800DA8B8D /* XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FA8A237D2513764800DA8B8D /* Build configuration list for PBXAggregateTarget "XCFramework" */;
+			buildPhases = (
+				FA8A23822513765000DA8B8D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = XCFramework;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -1268,6 +1279,10 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
+					FA8A237A2513764800DA8B8D = {
+						CreatedOnToolsVersion = 12.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 799F99BF1F1E2BF80010B6B1 /* Build configuration list for PBXProject "PayCardsRecognizer" */;
@@ -1288,6 +1303,7 @@
 				8501D5CE1F20F8CF00FAA7A5 /* UniversalFramework */,
 				799F99F31F1E2CDA0010B6B1 /* PayCardsRecognizer */,
 				8501D4B41F1F780200FAA7A5 /* PayCardsRecognizerSim */,
+				FA8A237A2513764800DA8B8D /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -1355,6 +1371,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "sh \"${SRCROOT}/concat.sh\"\n";
+		};
+		FA8A23822513765000DA8B8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ARTIFACT_NAME=\"PayCardsRecognizer\"\nDEVICE_ARCHIVE=\"${ARTIFACT_NAME}.framework-iphoneos.xcarchive\"\nSIMULATOR_ARCHIVE=\"${ARTIFACT_NAME}.framework-iphonesimulator.xcarchive\"\nARCHIVE_PATH=\"${SRCROOT}/archives/\"\nFLAGS=\"SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\"\nPRODUCT_PATH=\"/Products/Library/Frameworks/\"\nDEVICE_PRODUCT=\"${ARTIFACT_NAME}.framework\"\nSIMULATOR_PRODUCT=\"${ARTIFACT_NAME}Sim.framework\"\n\nmkdir -p $ARCHIVE_PATH\nrm -rf $ARCHIVE_PATH**\n\n# Device slice.\nxcodebuild archive -project \"${ARTIFACT_NAME}.xcodeproj\" \\\n  -scheme \"PayCardsRecognizer\" \\\n  -configuration Release \\\n  -destination 'generic/platform=iOS' \\\n  -archivePath \"${ARCHIVE_PATH}${DEVICE_ARCHIVE}\" \\\n  ${FLAGS}\n\n# Simulator slice.\nxcodebuild archive -project \"${ARTIFACT_NAME}.xcodeproj\" \\\n  -scheme \"PayCardsRecognizerSim\" \\\n  -configuration Release \\\n  -destination 'generic/platform=iOS Simulator' \\\n  -archivePath \"${ARCHIVE_PATH}${SIMULATOR_ARCHIVE}\" \\\n  ${FLAGS}\n\n# Create XCFramework\nxcodebuild -create-xcframework \\\n  -framework \"${ARCHIVE_PATH}${DEVICE_ARCHIVE}${PRODUCT_PATH}${DEVICE_PRODUCT}\" \\\n  -framework \"${ARCHIVE_PATH}${SIMULATOR_ARCHIVE}${PRODUCT_PATH}${SIMULATOR_PRODUCT}\" \\\n  -output \"${ARCHIVE_PATH}${ARTIFACT_NAME}.xcframework\"\n\nopen \"${ARCHIVE_PATH}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1847,6 +1880,22 @@
 			};
 			name = Release;
 		};
+		FA8A237B2513764800DA8B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA8A237C2513764800DA8B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1891,6 +1940,15 @@
 			buildConfigurations = (
 				8501D5D01F20F8CF00FAA7A5 /* Debug */,
 				8501D5D11F20F8CF00FAA7A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8A237D2513764800DA8B8D /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8A237B2513764800DA8B8D /* Debug */,
+				FA8A237C2513764800DA8B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
