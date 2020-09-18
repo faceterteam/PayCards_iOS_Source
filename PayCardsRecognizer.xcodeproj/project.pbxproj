@@ -521,7 +521,6 @@
 		8501D5A31F1F8ED000FAA7A5 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		8501D5B31F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizerResult.mm; sourceTree = "<group>"; };
 		8501D5B41F1FAC0700FAA7A5 /* PayCardsRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizer.mm; sourceTree = "<group>"; };
-		FAD4AC3C2514A46A006512D8 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,7 +562,6 @@
 				8501D5AF1F1FA9A900FAA7A5 /* PayCardsRecognizerSim */,
 				799F99C51F1E2BF80010B6B1 /* Products */,
 				8501D5C01F20D25300FAA7A5 /* Frameworks */,
-				FAD4AC3C2514A46A006512D8 /* Package.swift */,
 			);
 			sourceTree = "<group>";
 		};
