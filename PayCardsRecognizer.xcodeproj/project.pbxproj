@@ -522,6 +522,8 @@
 		8501D5B31F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizerResult.mm; sourceTree = "<group>"; };
 		8501D5B41F1FAC0700FAA7A5 /* PayCardsRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizer.mm; sourceTree = "<group>"; };
 		FA6F66222514C1CA00CEDE3A /* DalenysPayCardsRecognizer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = DalenysPayCardsRecognizer.podspec; sourceTree = "<group>"; };
+		FA6F66232514D68000CEDE3A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA6F66242514D6B800CEDE3A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,12 +560,14 @@
 		799F99BB1F1E2BF80010B6B1 = {
 			isa = PBXGroup;
 			children = (
-				FA6F66222514C1CA00CEDE3A /* DalenysPayCardsRecognizer.podspec */,
 				799F99DE1F1E2CC20010B6B1 /* PayCardsRecognizerExample */,
 				799F99F51F1E2CDA0010B6B1 /* PayCardsRecognizer */,
 				8501D5AF1F1FA9A900FAA7A5 /* PayCardsRecognizerSim */,
 				799F99C51F1E2BF80010B6B1 /* Products */,
 				8501D5C01F20D25300FAA7A5 /* Frameworks */,
+				FA6F66232514D68000CEDE3A /* README.md */,
+				FA6F66242514D6B800CEDE3A /* LICENSE.md */,
+				FA6F66222514C1CA00CEDE3A /* DalenysPayCardsRecognizer.podspec */,
 			);
 			sourceTree = "<group>";
 		};
