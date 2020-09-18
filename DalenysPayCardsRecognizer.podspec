@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   version = '1.1.7'
 
-  spec.name = 'DalenysPayCardRecognizer'
+  spec.name = 'DalenysPayCardsRecognizer'
   spec.version = version
   spec.summary          = 'Bank card recognizer for mobile apps'
   spec.homepage         = 'https://pay.cards'
@@ -13,7 +13,8 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   
   spec.source = {
-     :http => "https://github.com/therealmyluckyday/PayCards_iOS_Source/releases/tag/1.1.7/PayCardsRecognizer.zip"
+#     :http => "https://github.com/therealmyluckyday/PayCards_iOS_Source/releases/download/1.1.7/PayCardsRecognizer.zip"
+    :http => "https://www.myluckyday.fr/client/dalenys/ios/paycards/#{version}/PayCardsRecognizer.zip"
   }
 
   spec.ios.vendored_frameworks = "PayCardsRecognizer.xcframework"
