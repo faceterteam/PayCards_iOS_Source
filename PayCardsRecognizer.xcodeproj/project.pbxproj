@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 8501D5CF1F20F8CF00FAA7A5 /* Build configuration list for PBXAggregateTarget "UniversalFramework" */;
 			buildPhases = (
-				8501D5D21F20F8D500FAA7A5 /* ShellScript */,
+				8501D5D21F20F8D500FAA7A5 /* concat */,
 			);
 			dependencies = (
 			);
@@ -1253,7 +1253,7 @@
 				TargetAttributes = {
 					799F99DC1F1E2CC20010B6B1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3R68P2RPLF;
+						DevelopmentTeam = PKW9YCQ3UZ;
 						ProvisioningStyle = Automatic;
 					};
 					799F99F31F1E2CDA0010B6B1 = {
@@ -1343,13 +1343,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8501D5D21F20F8D500FAA7A5 /* ShellScript */ = {
+		8501D5D21F20F8D500FAA7A5 /* concat */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = concat;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1617,7 +1618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = 3R68P2RPLF;
+				DEVELOPMENT_TEAM = PKW9YCQ3UZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1638,7 +1639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = 3R68P2RPLF;
+				DEVELOPMENT_TEAM = PKW9YCQ3UZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
