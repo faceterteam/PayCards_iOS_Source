@@ -18,6 +18,17 @@
 			name = UniversalFramework;
 			productName = UniversalFramework;
 		};
+		FA8A237A2513764800DA8B8D /* XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FA8A237D2513764800DA8B8D /* Build configuration list for PBXAggregateTarget "XCFramework" */;
+			buildPhases = (
+				FA8A23822513765000DA8B8D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = XCFramework;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -505,11 +516,12 @@
 		799F9BC51F1E2DFD0010B6B1 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		799F9BC61F1E2DFD0010B6B1 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		799F9BC71F1E2DFD0010B6B1 /* RecognizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizerViewController.swift; sourceTree = "<group>"; };
-		8501D58E1F1F780200FAA7A5 /* PayCardsRecognizerSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayCardsRecognizerSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8501D58E1F1F780200FAA7A5 /* PayCardsRecognizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayCardsRecognizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8501D59E1F1F8C7D00FAA7A5 /* PayCardsRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayCardsRecognizer.h; path = ../PayCardsRecognizer.h; sourceTree = "<group>"; };
 		8501D5A31F1F8ED000FAA7A5 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		8501D5B31F1FAC0700FAA7A5 /* PayCardsRecognizerResult.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizerResult.mm; sourceTree = "<group>"; };
 		8501D5B41F1FAC0700FAA7A5 /* PayCardsRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayCardsRecognizer.mm; sourceTree = "<group>"; };
+		FA6F66232514D68000CEDE3A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +563,7 @@
 				8501D5AF1F1FA9A900FAA7A5 /* PayCardsRecognizerSim */,
 				799F99C51F1E2BF80010B6B1 /* Products */,
 				8501D5C01F20D25300FAA7A5 /* Frameworks */,
+				FA6F66232514D68000CEDE3A /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -559,7 +572,7 @@
 			children = (
 				799F99DD1F1E2CC20010B6B1 /* PayCardsRecognizerExample.app */,
 				799F99F41F1E2CDA0010B6B1 /* PayCardsRecognizer.framework */,
-				8501D58E1F1F780200FAA7A5 /* PayCardsRecognizerSim.framework */,
+				8501D58E1F1F780200FAA7A5 /* PayCardsRecognizer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1238,7 +1251,7 @@
 			);
 			name = PayCardsRecognizerSim;
 			productName = PayCardsRecognizer;
-			productReference = 8501D58E1F1F780200FAA7A5 /* PayCardsRecognizerSim.framework */;
+			productReference = 8501D58E1F1F780200FAA7A5 /* PayCardsRecognizer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1268,6 +1281,10 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
+					FA8A237A2513764800DA8B8D = {
+						CreatedOnToolsVersion = 12.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 799F99BF1F1E2BF80010B6B1 /* Build configuration list for PBXProject "PayCardsRecognizer" */;
@@ -1288,6 +1305,7 @@
 				8501D5CE1F20F8CF00FAA7A5 /* UniversalFramework */,
 				799F99F31F1E2CDA0010B6B1 /* PayCardsRecognizer */,
 				8501D4B41F1F780200FAA7A5 /* PayCardsRecognizerSim */,
+				FA8A237A2513764800DA8B8D /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -1356,6 +1374,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "sh \"${SRCROOT}/concat.sh\"\n";
+		};
+		FA8A23822513765000DA8B8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "env -i SRCROOT=\"$SRCROOT\" /bin/sh\n\nARTIFACT_NAME=\"PayCardsRecognizer\"\nDEVICE_ARCHIVE=\"${ARTIFACT_NAME}.framework-iphoneos.xcarchive\"\nSIMULATOR_ARCHIVE=\"${ARTIFACT_NAME}.framework-iphonesimulator.xcarchive\"\nARCHIVE_PATH=\"${SRCROOT}/archives/\"\nFLAGS=\"SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\"\nPRODUCT_PATH=\"/Products/Library/Frameworks/\"\nDEVICE_PRODUCT=\"${ARTIFACT_NAME}.framework\"\nSIMULATOR_PRODUCT=\"${ARTIFACT_NAME}.framework\"\n\nmkdir -p $ARCHIVE_PATH\nrm -rf $ARCHIVE_PATH**\n\n# Device slice.\nxcodebuild archive -project \"${ARTIFACT_NAME}.xcodeproj\" \\\n  -scheme \"PayCardsRecognizer\" \\\n  -configuration Release \\\n  -destination 'generic/platform=iOS' \\\n  -archivePath \"${ARCHIVE_PATH}${DEVICE_ARCHIVE}\" \\\n  ${FLAGS}\n\n# Simulator slice.\nxcodebuild archive -project \"${ARTIFACT_NAME}.xcodeproj\" \\\n  -scheme \"PayCardsRecognizerSim\" \\\n  -configuration Release \\\n  -destination 'generic/platform=iOS Simulator' \\\n  -archivePath \"${ARCHIVE_PATH}${SIMULATOR_ARCHIVE}\" \\\n  ${FLAGS}\n\n# Create XCFramework\nxcodebuild -create-xcframework \\\n  -framework \"${ARCHIVE_PATH}${DEVICE_ARCHIVE}${PRODUCT_PATH}${DEVICE_PRODUCT}\" \\\n  -framework \"${ARCHIVE_PATH}${SIMULATOR_ARCHIVE}${PRODUCT_PATH}${SIMULATOR_PRODUCT}\" \\\n  -output \"${ARCHIVE_PATH}${ARTIFACT_NAME}.xcframework\"\n\nopen \"${ARCHIVE_PATH}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1559,7 +1594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1604,7 +1639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1624,7 +1659,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PayCardsRecognizerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.azoft.demo.crn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1645,7 +1680,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PayCardsRecognizerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.azoft.demo.crn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1682,7 +1717,7 @@
 				);
 				INFOPLIST_FILE = PayCardsRecognizer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1723,7 +1758,7 @@
 				);
 				INFOPLIST_FILE = PayCardsRecognizer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1767,7 +1802,7 @@
 				);
 				INFOPLIST_FILE = PayCardsRecognizer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1777,11 +1812,12 @@
 				MODULEMAP_FILE = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = PayCardsRecognizer;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = "i386 x86_64 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1814,7 +1850,7 @@
 				);
 				INFOPLIST_FILE = PayCardsRecognizer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1824,11 +1860,12 @@
 				MODULEMAP_FILE = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = PayCardsRecognizer;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = "i386 x86_64 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1844,6 +1881,22 @@
 		8501D5D11F20F8CF00FAA7A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA8A237B2513764800DA8B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA8A237C2513764800DA8B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1892,6 +1945,15 @@
 			buildConfigurations = (
 				8501D5D01F20F8CF00FAA7A5 /* Debug */,
 				8501D5D11F20F8CF00FAA7A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8A237D2513764800DA8B8D /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8A237B2513764800DA8B8D /* Debug */,
+				FA8A237C2513764800DA8B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
