@@ -1658,6 +1658,7 @@
 		799F99FE1F1E2CDA0010B6B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+                BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1689,6 +1690,8 @@
 					"$(PROJECT_DIR)/PayCardsRecognizer/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+                OTHER_CFLAGS = "-fembed-bitcode";
+                OTHER_CPLUSPLUSFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1701,6 +1704,7 @@
 		799F99FF1F1E2CDA0010B6B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+                BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1729,6 +1733,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayCardsRecognizer/lib",
 				);
+                OTHER_CFLAGS = "-fembed-bitcode";
+                OTHER_CPLUSPLUSFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1742,6 +1748,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+                BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1776,6 +1783,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "";
 				ONLY_ACTIVE_ARCH = NO;
+                OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1791,6 +1799,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+                BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1823,6 +1832,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "";
 				ONLY_ACTIVE_ARCH = NO;
+                OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.PayCardsRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
